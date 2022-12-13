@@ -5,3 +5,4 @@ Add users from CSV called AzureADUserCreateTemplatePowerShell.csv
 Read Azure AD groups from csv add to to Azure then cycle through users and if department matches group then add user
 ###ToDO
 Azure AD Groups duplicate members. Add remove users and re-add function
+One logging method not both application log and out to c:\log as a log file
