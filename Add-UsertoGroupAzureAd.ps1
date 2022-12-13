@@ -1,5 +1,63 @@
-# Install if not present
-# Install-Module az
+#requires -version 1
+<#
+.SYNOPSIS
+  Add Users to Azure AD Groups
+.DESCRIPTION
+  Add Users to Azure AD Groups using Microsoft Graph API
+.PARAMETER <Parameter_Name>
+    None
+.INPUTS
+  None
+.OUTPUTS
+  Application Log and C:\logs
+.NOTES
+  Version:        1.0
+  Author:         Richard B
+  Creation Date:  13/12/2022 (UK FORMAT)
+  Purpose/Change: Initial script development
+  Standardise logging
+  
+.EXAMPLE
+  Add Azure AD user to Group using Microsoft Graph API
+#>## 
+
+#----------------------------------------------------------[Declarations]----------------------------------------------------------
+
+#Script Version
+$sScriptVersion = '1.0'
+$RequireScriptVersion = '1.0'
+
+# Powershell Version
+
+$versionMinimum = '7.1'
+
+#----------------------------------------------------------[Script]----------------------------------------------------------#
+#Set Powershell Execution Policy
+try { Set-ExecutionPolicy Unrestricted }
+catch {
+    Write-Host "An error occured:"
+    Write-Host $_
+    }
+
+# Register New Log Source
+try { New-EventLog -LogName Application -Source 'AzureADScript' }
+catch {
+    Write-Host "An error occured:"
+    Write-Host $_
+    }
+
+# Check Meets Requirements of Powershell and Script Version
+if ($versionMinimum -gt $PSVersionTable.PSVersion -AND $sScriptVersion -eq $RequireScriptVersion) 
+{
+    # Check PowerShell Version and Script Version
+    
+
+    Write-EventLog -LogName Application -Source 'AzureADScript' -EntryType Information -EventId 1 -Message "Powershell Version $versionMinimum installed"
+}
+else
+{
+    Write-EventLog -LogName Application -Source 'AzureADScript' -EntryType Information -EventId 1 -Message "Powershell Version $versionMinimum Not available"
+}
 
 # Install Microsoft Graph
 # Install if not present

@@ -1,3 +1,64 @@
+#requires -version 1
+<#
+.SYNOPSIS
+  Create New Teams Members
+.DESCRIPTION
+  Add Users to Azure AD
+.PARAMETER <Parameter_Name>
+    None
+.INPUTS
+  None
+.OUTPUTS
+  Application Log and out to a log file at C:\log
+.NOTES
+  Version:        1.0
+  Author:         Richard B
+  Creation Date:  18/05/2022 (UK FORMAT)
+  Purpose/Change: Initial script development
+ 
+  
+.EXAMPLE
+  <Example goes here. Repeat this attribute for more than one example>
+#>## 
+
+#----------------------------------------------------------[Declarations]----------------------------------------------------------
+
+#Script Version
+$sScriptVersion = '1.0'
+$RequireScriptVersion = '1.0'
+
+# Powershell Version
+
+$versionMinimum = '7.1'
+
+#----------------------------------------------------------[Script]----------------------------------------------------------#
+#Set Powershell Execution Policy
+try { Set-ExecutionPolicy Unrestricted }
+catch {
+    Write-Host "An error occured:"
+    Write-Host $_
+    }
+
+# Register New Log Source
+try { New-EventLog -LogName Application -Source 'LabScript' }
+catch {
+    Write-Host "An error occured:"
+    Write-Host $_
+    }
+
+# Check Meets Requirements of Powershell and Script Version
+if ($versionMinimum -gt $PSVersionTable.PSVersion -AND $sScriptVersion -eq $RequireScriptVersion) 
+{
+    # Check PowerShell Version and Script Version
+    
+
+    Write-EventLog -LogName Application -Source 'LabScript' -EntryType Information -EventId 1 -Message "Powershell Version $versionMinimum installed"
+}
+else
+{
+    Write-EventLog -LogName Application -Source 'LabScript' -EntryType Information -EventId 1 -Message "Powershell Version $versionMinimum Not available"
+}
+
 # MS Doc Reference
 # https://learn.microsoft.com/en-us/powershell/module/azuread/new-azureaduser?view=azureadps-2.0
 # Install Azure AD PowerShell Module is deprecated
