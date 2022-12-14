@@ -84,7 +84,7 @@ Function LogWrite
    Add-content $Logfile -value $logstring
 }
 
-# Set csv path 'C:\Path\to\users.csv'
+# Set csv path 'C:\Path\to\users.csv' Change path to your needs
 $csvFilePath = 'C:\Users\bob\Documents\GitHub\Azure\AzureADUserCreateTemplatePowerShell.csv' 
  
 # Get the CSV file and convert it to an array

@@ -78,7 +78,7 @@ Function LogWrite
 }
 # Get a list of DepartmentNames
 # Get all users from Azure and Export as csv
-# Specify location of output
+# Specify location of output - Change Path to your needs
 $csvoutput = 'C:\Users\bob\Documents\GitHub\Azure\AzureADGroupsList.csv' 
 # Get Users Departments and export to csv
 # $AllDepartments = Get-MgUser -All -Property Department | Select-Object Department -Unique | Export-Csv $csvoutput
